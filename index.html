@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edvoy Genie | Pro Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Sidebar (Column 1) -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon"></div>
+        <h2>Genie Pro</h2>
+      </div>
+
+      <div class="profile-section">
+        <div class="section-label">STUDENT PROFILE</div>
+        <div id="profile-data" class="profile-list">
+          <div class="profile-item empty">Building profile...</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-item active"><i class="fas fa-comment-dots"></i> Assistant</div>
+        <div class="nav-item"><i class="fas fa-university"></i> Universities</div>
+        <div class="nav-item"><i class="fas fa-book"></i> My Courses</div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="pulse"></span>
+        <span id="connection-status">Connected</span>
+      </div>
+    </aside>
+
+    <!-- Main Chat (Column 2) -->
+    <main class="chat-area">
+      <header class="chat-header">
+        <div class="header-content">
+          <h1>Universal Assistant</h1>
+          <span id="typing-status" class="typing-text">Ready to help</span>
+        </div>
+      </header>
+
+      <div id="chat-messages" class="messages-container">
+        <div class="welcome-banner">
+          <span class="genie-badge">🎓 AI GENIE</span>
+          <h2>How can I assist your study journey?</h2>
+          <div class="chips">
+            <button onclick="sendQuery('What are the top universities in UK?')">UK Rankings</button>
+            <button onclick="sendQuery('Find me MBA courses in London')">MBA in London</button>
+            <button onclick="sendQuery('Scholarships for international students')">Scholarships</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="input-container">
+        <form id="chat-form">
+          <input type="text" id="user-input" placeholder="Ask about universities, courses, or requirements..."
+            autocomplete="off">
+          <button type="submit" id="send-btn"><i class="fas fa-arrow-up"></i></button>
+        </form>
+      </footer>
+    </main>
+
+    <!-- Context & Insights (Column 3) -->
+    <aside class="context-tray">
+      <div class="tray-section">
+        <h3><i class="fas fa-microchip"></i> System Intelligence</h3>
+        <div id="status-timeline" class="mini-timeline">
+          <div class="t-step" data-step="analyzing">
+            <div class="t-dot"></div> Analyzing
+          </div>
+          <div class="t-step" data-step="retrieving">
+            <div class="t-dot"></div> Searching
+          </div>
+          <div class="t-step" data-step="responding">
+            <div class="t-dot"></div> Formatting
+          </div>
+        </div>
+      </div>
+
+      <div class="tray-section">
+        <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+        <div id="context-cards" class="cards-list">
+          <div class="insight-placeholder">Relevant data and recommendations will appear here during our chat.</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    window.sendQuery = (text) => {
+      const input = document.getElementById('user-input');
+      if (input) {
+        input.value = text;
+        document.getElementById('chat-form').dispatchEvent(new Event('submit'));
+      }
+    }
+  </script>
+</body>
+
+</html>
