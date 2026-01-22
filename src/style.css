@@ -41,6 +41,16 @@ body {
   display: flex;
   flex-direction: column;
   padding: 24px 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari/Opera */
 }
 
 .sidebar-header {
@@ -196,15 +206,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
 
 .messages-container::-webkit-scrollbar {
-  width: 4px;
-}
-
-.messages-container::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 10px;
+  display: none;
+  /* Chrome/Safari/Opera */
 }
 
 .welcome-banner {
@@ -356,6 +366,16 @@ body {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.context-tray::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari/Opera */
 }
 
 .tray-section h3 {
